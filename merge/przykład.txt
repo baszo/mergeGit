@@ -1,0 +1,26 @@
+./merge.py "git@addr:bss/p7-framework.git"+"p7-framework" "git@addr:bss/bss-backend.git"+"bss-backend" "git@addr:repo/bss-frontend.git"+"bss-frontend" "git@addr:bss/ts-bss-backend.git"+"ts-bss-backend" "git@addr:bss/transaction-converter.git"+"bss-transaction-converter" "git@addr:bss/crm-integration.git"+"crm-cqrs" "git@addr:bss/vectra-bss-backend.git"+"vectra-bss-backend" "git@addr:repo/crm-core.git"+"crm-core" "git@addr:repo/crm-conf.git"+"crm-conf" "git@addr:repo/crm-ext-teliasonera.git"+"crm-ext-teliasonera" wersja3 (opcje)
+
+jako opcje można wpisać -bss -> który doda nam jeszcze bss-workspace jako podstawowe repozytorióm do którego będziemy łaczyc reszte repozytoriów
+
+Dodatkowe możliwości:
+gdy dodany plik(w tym samym katalogu co wykonywany program):
+a)prefixes -> w nim dodajemy wszystki prefixy branchy których chcemy się pozbyć
+b)skipbranch -> w nim dodajemy wszystkie branche które maja zostać pominięte
+c)skiptag -> w nim dodajemy wszystkie tagi które maja zostać pominięte
+
+wszystkie dane wpisujemy że jedna dana jest w linijsce kolejna w następnej itd.
+
+
+Dodałem program merge.py -> wykonuje on kroki 1 do 4 automatycznie.
+Przykład uruchomienia :
+./merge.py "git@addr:andrzej.plutecki/bss-backend.git"+back "git@addr:andrzej.plutecki/p7-framework.git"+p7 wynik
+gdzie:
+-repozytorium może być likiem ssh lub http oraz musi być on w cudzysłowach ("repo")
+-po repozytorium daje się + i podaje się nazwe folderu w którym ma się znaleźć podane repozytorium
+-na samym końcu podaje się nazwe folderu do którego zostanie wrzucona wersja połączona
+
+
+Jak dostanie się już finalne repozytorium należy uzyc komęd:
+git remote add origin <adres zdalnego repozytorium>
+git push --all -f-> wysyła na zdalne repozytorium wszystkie branche
+git push --tags  -> wysyła na zdalne repozytorium wszystkich tagów
